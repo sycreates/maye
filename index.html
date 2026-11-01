@@ -30,14 +30,29 @@ section{padding:86px 0;position:relative}.section-head{display:grid;grid-templat
 .vc-intro{grid-column:1/-1;text-align:center}.vc-eyebrow{font:600 .68rem var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#d2b98f}.vc-intro p{margin:8px 0 0;font: .78rem var(--sans);color:#d9c6a7}.vc-view{height:100%;min-height:480px;position:relative;touch-action:none;grid-column:1;grid-row:2}.vc-view canvas{width:100%;height:100%;display:block;cursor:grab}.vc-view canvas:active{cursor:grabbing}.vc-loading{position:absolute;inset:0;display:grid;place-items:center;color:#e3d1ae;font: .72rem var(--sans);letter-spacing:.18em;text-transform:uppercase;pointer-events:none}.vc-note{grid-column:2;grid-row:2;align-self:center;background:#f2e5cf;color:#493827;padding:14px 14px 22px;box-shadow:0 22px 70px #0006;transform:rotate(1deg);display:none}.vc-note.visible{display:block}.vc-note img{width:100%;height:190px;object-fit:cover;background:#ddcbb6}.vc-kicker{font: .62rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#a47a5d;margin-top:15px}.vc-note h3{font-size:1.8rem;font-weight:400;margin:8px 0}.vc-note p{font-size:1rem;line-height:1.6;white-space:pre-line;color:#655343}.vc-note button{border:1px solid #bba17c;background:transparent;color:#594632;padding:9px 14px;cursor:pointer;font: .72rem var(--sans)}.vc-counter{grid-column:1/-1;text-align:center;font: .65rem var(--sans);letter-spacing:.16em;color:#d7c6a8}.vc-disclaimer{text-align:center;font: .75rem var(--sans);color:#77745f;margin:18px 0 0}
 @media(max-width:800px){.vintage-cake-shell{grid-template-columns:1fr;grid-template-rows:auto minmax(360px,52vh) auto auto;padding:16px;gap:12px}.vc-view{grid-column:1;grid-row:2;min-height:360px;height:52vh}.vc-note{grid-column:1;grid-row:3;max-width:430px;width:100%;margin:0 auto}.vc-note img{height:180px}.vc-counter{grid-row:4}}
 
+
+.friend-messages-section{background:#e5e8d9}
+.friend-message-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.friend-message-card{position:relative;min-height:210px;padding:25px 22px 22px;background:#fffaf0;border:1px solid #d9cdb4;box-shadow:0 9px 22px #302c2017;transform:rotate(var(--tilt,-1deg));text-align:left;color:var(--ink);cursor:pointer;transition:transform .22s,box-shadow .22s}
+.friend-message-card:nth-child(3n+2){--tilt:1.4deg;background:#f7f0df}
+.friend-message-card:nth-child(3n){--tilt:-.6deg;background:#f4f2e6}
+.friend-message-card:hover{transform:translateY(-6px) rotate(0);box-shadow:0 15px 28px #302c2025}
+.friend-message-card:before{content:"";position:absolute;top:-8px;left:35%;width:70px;height:19px;background:#b8b99a99;transform:rotate(-3deg)}
+.friend-message-card .from{font:600 .68rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--sage)}
+.friend-message-card h3{font-size:1.8rem;font-weight:500;color:var(--deep);margin:10px 0 8px}
+.friend-message-card p{font-size:1.02rem;line-height:1.45;margin:0;color:#625f50;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.friend-message-card .open-hint{display:block;margin-top:16px;font:600 .64rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+@media(max-width:800px){.friend-message-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:460px){.friend-message-grid{grid-template-columns:1fr}.friend-message-card{min-height:175px}}
+
 </style>
 <style id="devModeStyles">
 #devPanel{position:fixed;inset:0;z-index:100000;background:#20241ed9;display:none;align-items:center;justify-content:center;padding:16px;font-family:Arial,sans-serif;color:#30352b}#devPanel.open{display:flex}.dev-card{width:min(720px,100%);max-height:92vh;overflow:auto;background:#fff9eb;border:1px solid #c8b995;padding:22px;box-shadow:0 20px 80px #0008}.dev-card h2{margin:0 0 6px;font-size:26px}.dev-card p{line-height:1.45}.dev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dev-card input,.dev-card textarea,.dev-card select{width:100%;box-sizing:border-box;padding:10px;border:1px solid #c9c1aa;background:#fffdf6;font:14px Arial;margin:4px 0 10px}.dev-card textarea{min-height:80px}.dev-btn{border:0;background:#394332;color:#fff8e8;padding:10px 14px;margin:4px 5px 4px 0;cursor:pointer;font:600 13px Arial}.dev-btn.alt{background:#e5d8bf;color:#394332}.dev-status{font-size:12px;color:#68745b;min-height:18px}.dev-editing [data-dev-editable="1"]{outline:2px dashed #c98e82!important;outline-offset:2px;cursor:text}.dev-editing img[data-dev-editable="1"]{outline:3px solid #c98e82!important;cursor:pointer}.dev-badge{position:fixed;z-index:99998;left:12px;bottom:12px;background:#394332;color:#fff8e8;padding:9px 12px;border-radius:6px;font:12px Arial;display:none}.dev-editing .dev-badge{display:block}@media(max-width:560px){.dev-grid{grid-template-columns:1fr}.dev-card{padding:16px}}
 </style>
 </head>
 <body>
-<nav class="nav" aria-label="Main navigation"><span class="brand">♡</span><a href="#home">Home</a><a href="#letter">Letter</a><a href="#gallery">Memories</a><a href="#memory-cake">3D Cake</a><a href="#letters">Letters</a><a href="#mixtape">Voice notes</a><a href="#openwhen">Open when</a><a href="#prayer">Prayer</a><a href="#surprise">Surprise</a></nav>
-<button class="music" id="musicToggle" aria-label="Toggle background music">♫ Play our song</button><audio id="bgMusic" src="music.mp3" loop preload="none"></audio><audio id="voicePlayer" preload="none"></audio>
+<nav class="nav" aria-label="Main navigation"><span class="brand">♡</span><a href="#home">Home</a><a href="#letter">Letter</a><a href="#gallery">Memories</a><a href="#memory-cake">3D Cake</a><a href="#friend-messages">Friends’ messages</a><a href="#openwhen">Open when</a><a href="#prayer">Prayer</a><a href="#surprise">Surprise</a></nav>
+<button class="music" id="musicToggle" aria-label="Toggle background music">♫ Play our song</button><audio id="bgMusic" src="music.mp3" loop preload="none"></audio>
 <header class="hero" id="home"><div class="wrap hero-grid"><div class="hero-note paper"><span class="tape"></span><div class="eyebrow">A little scrapbook made for</div><h1 class="script">Mae<span style="color:var(--rose)">♡</span></h1><h2>Happy Birthday, beautiful soul</h2><p>For the things I don’t always know how to say out loud, the prayers I whisper for you, and the little reminders I hope you keep close, Mae. ♡</p><div class="hero-actions"><a class="pill" href="#letter">Open your scrapbook ♡</a><a class="pill ghost" href="#gallery">See the memories</a></div></div><div class="hero-side"><figure class="hero-photo"><img src="photos/mae-1.jpg" alt="A favorite photo of Mae" onerror="this.onerror=null;this.src='https://placehold.co/600x700/e1dfcf/59634b?text=Add+Mae%27s+Photo'"><figcaption class="script">You are so loved ♡</figcaption></figure><div class="countdown paper"><div class="eyebrow">Until your special day</div><div class="clock"><div><strong id="days">00</strong><span>Days</span></div><div><strong id="hours">00</strong><span>Hours</span></div><div><strong id="minutes">00</strong><span>Minutes</span></div><div><strong id="seconds">00</strong><span>Seconds</span></div></div><div>♡ <span id="birthdayDateLabel">November 25, 2026</span></div><p class="smallprint">A new chapter, wrapped in grace.</p></div></div></div><div class="hero-foot">MADE SLOWLY, KEPT FOREVER · ↓</div></header>
 <main>
 <section id="letter"><div class="wrap"><div class="section-head"><div class="num">01</div><div><div class="eyebrow">A letter just for you</div><h2 class="script">Dear Mae, ♡</h2><p>Some things are easier to write than to say face to face. So, Mae, open this little envelope. Bawal maiyak agad, ha. Joke. (Konti lang.) ♡</p></div></div><div class="letter-grid"><div><div class="envelope-wrap"><button class="envelope" id="mainEnvelope" aria-label="Open your birthday letter"><span class="envelope-letter"><span class="eyebrow">For Mae, with love</span><span class="script">To Mae ♡</span><span class="sans" style="font-size:.72rem">please open when ready</span></span><span class="flap"></span><span class="seal">♡</span></button></div><p class="hint">A little reminder, sealed with love.</p></div><article class="note-copy paper"><span class="tape"></span><div class="eyebrow">Keep this close</div><h3 class="script">A note for your heart</h3><p>Mae, I hope you know you don’t have to be the strong one every single day. Kahit ikaw naman ang mapagod, malungkot, or hindi alam ang next step, that doesn’t make you any less amazing. I pray you always find a safe place to breathe, people who will listen without making you explain everything, and the courage to keep going one day at a time. And please remember, God is not only with you when you’re doing well. He is with you in the messy, quiet, unsure days, too. ♡</p><button class="pill" id="openLetter">Read your letter ♡</button></article></div></div></section>
@@ -56,55 +71,56 @@ section{padding:86px 0;position:relative}.section-head{display:grid;grid-templat
   </div>
 </section>
 
-<section id="letters"><div class="wrap"><div class="section-head"><div class="num">03</div><div><div class="eyebrow">Words from your people</div><h2 class="script">Little Letters, Big Love</h2><p>Each envelope is a little voice saying, “Mae, we’re glad you’re here.” Sana kapag may araw na nakakalimutan mong mahalaga ka, you can come back here and remember that you have people cheering for you, praying for you, and rooting for the person you’re becoming. ♡</p></div></div><div class="submission-bar"><a class="pill" id="writtenLink" href="#" target="_blank" rel="noopener">✉ Send Mae a written message</a><a class="pill ghost" href="https://script.google.com/macros/s/AKfycbzoFIrq9ehOvRNZ1vW65ED6nteQ7adSv2fku7k9hiZbvVtBtscittaBlXno4KYCN9HYQg/exec" target="_blank" rel="noopener">♫ Leave a voice note</a></div><div class="letters-grid" id="friendLetters"></div><p id="feedStatus" class="hint" style="margin-top:18px" aria-live="polite">Your people’s approved messages will appear here.</p></div></section>
-<section id="mixtape" style="background:#dfe2d2"><div class="wrap"><div class="section-head"><div class="num">04</div><div><div class="eyebrow">Voices you can keep</div><h2 class="script">The Birthday Mixtape</h2><p>For the days you miss your people, need a laugh, or just want to hear a familiar voice reminding you that you’re not alone. Please listen to these when you need a little comfort, Mae. ♡</p></div></div><div class="mixtape-grid"><div class="cassette"><div class="cassette-label script">Mae's Mixtape ♡</div><div class="cassette-window"><span class="reel"></span><span class="reel"></span></div><div class="cassette-controls"><button id="prevTrack" aria-label="Previous voice note">|◀</button><button id="playTrack" aria-label="Play or pause voice note">▶</button><button id="nextTrack" aria-label="Next voice note">▶|</button></div></div><div class="track-list paper"><div id="trackList"></div><p id="trackStatus" class="smallprint" aria-live="polite">Choose a voice note to listen.</p></div></div><div style="margin-top:22px"><a class="pill" href="https://script.google.com/macros/s/AKfycbzoFIrq9ehOvRNZ1vW65ED6nteQ7adSv2fku7k9hiZbvVtBtscittaBlXno4KYCN9HYQg/exec" target="_blank" rel="noopener">Add a voice note for Mae ♡</a></div></div></section>
+
+
+<section class="friend-messages-section" id="friend-messages">
+  <div class="wrap">
+    <div class="section-head"><div class="num">04</div><div><div class="eyebrow">Words from the people who love you</div><h2 class="script">Little Letters, Big Love ♡</h2><p>Every message is a little reminder that you are loved, appreciated, and never cheering alone. Tap each note to read the whole message. ♡</p></div></div>
+    <div class="friend-message-grid" id="friendMessageGrid"></div>
+  </div>
+</section>
+
 <section class="openwhen-section" id="openwhen"><div class="wrap"><div class="section-head"><div class="num">05</div><div><div class="eyebrow">For every kind of day</div><h2 class="script">Open When... ♡</h2><p>Hindi lahat ng araw magaan, and you don’t have to pretend they are. These are little letters from your kuya for whatever kind of day you’re having. Open one whenever you need it, okay? ♡</p></div></div><div class="openwhen-grid" id="openWhenGrid"></div></div></section>
 <section class="prayer-section" id="prayer"><div class="wrap"><div class="section-head"><div class="num">06</div><div><div class="eyebrow">A blessing over your new year</div><h2 class="script">A Prayer for Mae</h2><p>More than a birthday wish, this is something I genuinely pray for you: that even as life changes, you’ll keep finding your way back to the One who has never stopped holding you. ♡</p></div></div><div class="prayer-grid"><article class="verse paper"><span class="eyebrow">A verse to carry with you</span><blockquote>“The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you.”</blockquote><cite>NUMBERS 6:24–25 · NIV</cite><hr style="border:0;border-top:1px solid var(--line);margin:25px 0"><div id="prayerCopy" class="prayer-copy"></div><button class="pill" id="readPrayer" style="margin-top:20px">Read the full prayer ♡</button></article><figure class="prayer-photo"><img src="photos/prayer.jpg" alt="A peaceful image for Mae's prayer" onerror="this.onerror=null;this.src='https://placehold.co/600x700/dfe2d2/59634b?text=A+little+prayer'"><figcaption class="script">Covered in grace ♡</figcaption></figure></div></div></section>
-<section class="community" id="community"><div class="wrap"><article class="community-card paper"><div><div class="eyebrow">Add to the scrapbook</div><h3 class="script">Leave a little piece of love</h3><p>Have a memory, a prayer, a photo, or a voice Mae should keep? Share it with her. Submissions are reviewed before anything appears on the public scrapbook.</p></div><div class="community-actions"><a class="pill" id="writtenLink2" href="#" target="_blank" rel="noopener">Write a message</a><a class="pill ghost" href="https://script.google.com/macros/s/AKfycbzoFIrq9ehOvRNZ1vW65ED6nteQ7adSv2fku7k9hiZbvVtBtscittaBlXno4KYCN9HYQg/exec" target="_blank" rel="noopener">Upload a voice note</a></div></article></div></section>
 <section class="surprise" id="surprise"><div class="wrap"><div class="eyebrow">One last little thing</div><h2 class="script">A gift for you, Mae</h2><p>Mae!!! Akala mo tapos na? May pahabol pa si Kuya Syy. 😭 Click the gift. Hindi kita papagurin sa scavenger hunt, promise. (For now.) ♡</p><button class="gift" id="giftButton" aria-label="Open the hidden birthday surprise">🎁</button><div class="reveal" id="giftReveal"><div class="eyebrow">Just for you ♡</div><h3 class="script" style="font-size:2.8rem;margin:8px 0">You are a gift, too.</h3><p>Mae, if you’ve made it this far, thank you for letting your kuya be a little emotional for once. 😭🤏🏻 I hope you remember this even after your birthday: you don’t have to earn your place in this world by being perfect or by always being the strong one. You are loved, you are still growing, and God is not finished writing your story. I pray you find the courage to keep going, the humility to keep learning, and the wisdom to keep choosing Him. When life gets heavy, don’t disappear into the thought that you have to handle everything alone. Pray, reach out, rest, and begin again. I’m cheering for you, Mae, and I’ll keep praying that your life is full of moments that remind you how faithful God has been. Happy birthday, Mae. KUYA SYY 🤏🏻🤏🏻 ♡</p><button class="pill" id="wishButton">One more wish ✨</button><p id="wishMessage" class="reveal">And one last thing, Mae: may you always have the courage to keep hoping, the wisdom to know when to rest, and the faith to trust God even when the next chapter hasn’t made sense yet. You’re doing better than you think. Proud of you, and still praying for you. 🤏🏻♡</p></div></div></section>
 </main><footer class="footer"><div class="script">Made with love, for Mae ♡</div><p>A little scrapbook of memories, prayers, and people who care.</p><p class="smallprint" style="color:#c8c9b4">From Kuya Syy, with prayers and a little kulit. 🤏🏻🤏🏻</p></footer>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Close">×</button><div class="eyebrow" id="modalEyebrow">A little note</div><h2 class="script" id="modalTitle">For Mae ♡</h2><div id="modalBody"></div></div></div>
 <script>
-const LETTERS = [
- {from:'Kuya Syy',title:'From Kuya Syy, obviously 🤏🏻',message:`MAEEEE, happy birthday! 😭🤏🏻
-
-Una sa lahat, thank you for being you. I know this sounds simple, pero I really hope you understand that your presence matters more than you probably realize. Sometimes people don’t get to see the quiet things you carry, the thoughts you keep to yourself, or the effort it takes just to show up and keep going. But I hope you never think those things make you any less worthy of love and kindness.
-
-I pray that God gives you the kind of peace that stays even when life gets confusing, the courage to begin again when things don’t go as planned, and people who remind you that you don’t have to figure everything out alone. You can grow slowly. You can rest. You can have hard days. You can ask for help. None of that makes you less of the person God is lovingly shaping you to be.
-
-And please, don’t be too hard on yourself, okay? You’re still growing, still learning, still becoming. Celebrate the little wins, forgive yourself for the days you couldn’t do everything, and never forget to give God the credit for bringing you this far.
-
-I’m genuinely thankful that our paths crossed, Mae. I’ll keep praying that you experience God’s goodness not just in the big answered prayers, but in the small ordinary moments, too. Happy birthday, Mae. Stay soft-hearted, keep your faith, and please continue being kulit sometimes because someone has to keep life entertaining. 😭
-
-With prayers, care, and a little pang-aasar,
-KUYA SYY 🤏🏻🤏🏻`},
- {from:'Your Bestie',title:'From your bestie ♡',message:`Mae, if I could wish one thing for you, it would be that you see yourself with the same gentleness you give to the people you love. I hope you know you don’t have to earn your place in people’s lives by always being available, always being okay, or always knowing what to say. You are worth showing up for, even on the days when you don’t feel like your best self.
-
-Thank you for all the memories, the random laughs, and the little moments that probably seemed ordinary at the time but mean so much now. I’m praying this year gives you genuine joy, friendships that feel safe, and reminders that God has not forgotten a single prayer you’ve whispered. I’m always rooting for you. Happy birthday. Love you lots. ♡`},
- {from:'Your Church Family',title:'From your church family ✿',message:`Happy birthday, Mae! We thank God for your life and for the ways He continues to work in you. We pray that your faith will keep growing, not only in seasons when everything makes sense, but also in the seasons when you have to trust Him one step at a time.
-
-May the Lord strengthen you when serving feels tiring, refresh your heart when you feel empty, and remind you that ministry is never about being seen by everyone. He sees the quiet faithfulness, the small acts of kindness, and the love you offer even when nobody notices. May your life keep pointing people toward Jesus, and may you also allow yourself to be cared for by the people He has placed around you. We’re grateful for you. Happy birthday! ♡`},
- {from:'Someone Special',title:'A note for your heart ♡',message:`Mae, I hope life is kind to you, but when it isn’t, I hope you remember that you don’t have to face every difficult thing with a brave face. You can admit that you’re tired. You can take a break. You can start again tomorrow.
-
-I pray you find the courage to let go of what you cannot control and the wisdom to care for what God has placed in your hands today. May you be surrounded by people who listen, speak life into you, and remind you of your worth without asking you to prove it first. You matter more than you know. Please don’t forget that. ♡`},
- {from:'More Love',title:'A little extra love ♡',message:`A birthday reminder from someone cheering you on: you do not need to have your whole life figured out right now. You are not late just because your journey looks different from someone else’s. God is not rushing the work He is doing in you.
-
-Take your time, Mae. Learn what you need to learn. Rest without guilt. Laugh loudly when something is funny. Pray honestly, even when all you can manage is “Lord, help me.” Keep showing up, but remember that you are loved on the days you can only show up a little. We’re proud of you, and we’re praying for you. ♡`}
-];
 const GALLERY = [
- {src:'photos/mae-1.jpg',caption:'Beautiful inside and out ♡'},
- {src:'photos/mae-2.jpg',caption:'A heart that loves well ♡'},
- {src:'photos/mae-3.jpg',caption:'Always a blessing ♡'},
- {src:'photos/mae-4.jpg',caption:'So grateful for you ♡'},
- {src:'photos/mae-5.jpg',caption:'A memory worth keeping ✿'},
- {src:'photos/mae-6.jpg',caption:'More moments, more smiles ♡'}
-];
-const TRACKS = [
- {title:'From Your Church Friends',src:'audio/message-1.mp3',duration:'0:45'},
- {title:'A Message from Your Bestie',src:'audio/message-2.mp3',duration:'1:12'},
- {title:'Words of Encouragement',src:'audio/message-3.mp3',duration:'0:58'},
- {title:'A Prayer for You',src:'audio/message-4.mp3',duration:'1:30'},
- {title:'Happy Birthday, Mae!',src:'audio/message-5.mp3',duration:'1:05'}
+ {src:'photos/submissions/Cjjj_photo-3_20261028_155849.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Naan_photo-7_20261027_112945.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/Cjjj_photo-3_20261028_160041.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Cjjj_photo-1_20261028_155845.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/xianelle_photo-3_20261026_211000.png',caption:'A little memory from Xianelle ♡'},
+ {src:'photos/submissions/jing2x_photo-4_20261026_210724.jpg',caption:'A little memory from Jing2x ♡'},
+ {src:'photos/submissions/Xianelle_photo-1_20261026_200210.jpg',caption:'A little memory from Xianelle ♡'},
+ {src:'photos/submissions/jing2x_photo-6_20261026_210734.jpg',caption:'A little memory from Jing2x ♡'},
+ {src:'photos/submissions/Xianelle_photo-1_20261026_200314.jpg',caption:'A little memory from Xianelle ♡'},
+ {src:'photos/submissions/Cjjj_photo-2_20261028_155847.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Cjjj_photo-3_20261028_160209.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Binsoy_photo-2_20261029_080714.jpg',caption:'A little memory from Binsoy ♡'},
+ {src:'photos/submissions/jing2x_photo-8_20261026_210751.jpg',caption:'A little memory from Jing2x ♡'},
+ {src:'photos/submissions/Naan_photo-1_20261027_112909.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/jing2x_photo-7_20261026_210736.jpg',caption:'A little memory from Jing2x ♡'},
+ {src:'photos/submissions/xianelle_photo-2_20261026_210954.jpg',caption:'A little memory from Xianelle ♡'},
+ {src:'photos/submissions/Cjjj_photo-1_20261028_160159.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Xianelle_photo-2_20261026_200318.jpg',caption:'A little memory from Xianelle ♡'},
+ {src:'photos/submissions/xianelle_photo-1_20261026_210949.jpg',caption:'A little memory from Xianelle ♡'},
+ {src:'photos/submissions/Cjjj_photo-2_20261028_160038.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Naan_photo-6_20261027_112937.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/jing2x_photo-2_20261026_210717.jpg',caption:'A little memory from Jing2x ♡'},
+ {src:'photos/submissions/Naan_photo-3_20261027_112913.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/Cjjj_photo-1_20261028_160035.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Cjjj_photo-2_20261028_160202.jpg',caption:'A little memory from Cjjj ♡'},
+ {src:'photos/submissions/Naan_photo-2_20261027_112911.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/Binsoy_photo-1_20261029_080712.jpg',caption:'A little memory from Binsoy ♡'},
+ {src:'photos/submissions/jing2x_photo-5_20261026_210731.jpg',caption:'A little memory from Jing2x ♡'},
+ {src:'photos/submissions/Naan_photo-8_20261027_112946.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/Binsoy_photo-3_20261029_080721.png',caption:'A little memory from Binsoy ♡'},
+ {src:'photos/submissions/Naan_photo-5_20261027_112934.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/jing2x_photo-3_20261026_210719.jpg',caption:'A little memory from Jing2x ♡'},
+ {src:'photos/submissions/Naan_photo-4_20261027_112922.jpg',caption:'A little memory from Naan ♡'},
+ {src:'photos/submissions/jing2x_photo-1_20261026_210715.jpg',caption:'A little memory from Jing2x ♡'}
 ];
 const OPEN_WHEN = [
  {title:'Open when you feel sad',subtitle:'You don’t have to act okay with me.',message:`Hey, Mae. Come here muna. 🤏🏻
@@ -169,9 +185,6 @@ May this new year of her life be filled with Your presence. Not necessarily a ye
 In Jesus’ name, Amen. ♡`;
 const BIRTHDAY_DATE = '2026-11-02T00:01:00+08:00'; // Philippines time: November 2, 2026 at 12:01 AM.
 const AUTO_NEXT_BIRTHDAY = false;
-// Paste your deployed Apps Script Web App URL and message form URL here.
-const PUBLIC_FEED_URL = 'https://script.google.com/macros/s/AKfycbzoFIrq9ehOvRNZ1vW65ED6nteQ7adSv2fku7k9hiZbvVtBtscittaBlXno4KYCN9HYQg/exec';
-const GOOGLE_MESSAGE_FORM_URL = 'https://script.google.com/macros/s/AKfycbzoFIrq9ehOvRNZ1vW65ED6nteQ7adSv2fku7k9hiZbvVtBtscittaBlXno4KYCN9HYQg/exec';
 const $ = s => document.querySelector(s);
 const modal=$('#modal');
 function openModal(title,body,eyebrow='A little note'){ $('#modalTitle').textContent=title;$('#modalEyebrow').textContent=eyebrow;const target=$('#modalBody');target.replaceChildren();if(body instanceof Node)target.append(body);else{const p=document.createElement('p');p.textContent=body;target.append(p)}modal.classList.add('show');document.body.style.overflow='hidden';$('#modalClose').focus(); }
@@ -180,15 +193,54 @@ function updateCountdown(){let target=new Date(BIRTHDAY_DATE);const now=new Date
 function imageFallback(img,label){img.onerror=()=>{img.onerror=null;img.src='https://placehold.co/600x700/e5e0cf/59634b?text='+encodeURIComponent(label)}}
 function renderGallery(){const grid=$('#galleryGrid');grid.replaceChildren();GALLERY.forEach(item=>{const b=document.createElement('button');b.className='polaroid';const img=document.createElement('img');img.src=item.src;img.alt=item.caption;imageFallback(img,'Mae Photo');const cap=document.createElement('p');cap.textContent=item.caption;b.append(img,cap);b.onclick=()=>{const wrap=document.createElement('div');const large=document.createElement('img');large.src=item.src;large.alt=item.caption;large.className='modal-image';imageFallback(large,'Mae Photo');const caption=document.createElement('p');caption.textContent=item.caption;caption.style.textAlign='center';wrap.append(large,caption);openModal('A moment with Mae ♡',wrap,'The memory pages')};grid.append(b)})}renderGallery();
 function letterCard(letter,i){const b=document.createElement('button');b.className='friend-envelope';b.setAttribute('aria-label','Open letter '+letter.from);const front=document.createElement('span');front.className='front';const face=document.createElement('span');face.className='letter-face';const flower=document.createElement('span');flower.textContent=i%2?'✿':'❀';flower.style.fontSize='1.35rem';const strong=document.createElement('strong');strong.textContent=letter.from||'Someone who loves you';const small=document.createElement('small');small.textContent='tap to open ♡';face.append(flower,strong,small);const seal=document.createElement('span');seal.className='seal-mini';seal.textContent='♡';b.append(front,face,seal);b.onclick=()=>openModal(letter.title||('A note from '+letter.from+' ♡'),letter.message||'', 'A letter from someone who loves you');return b}
-let remoteMessages=[];function renderFriendLetters(){const grid=$('#friendLetters');grid.replaceChildren();[...LETTERS,...remoteMessages].forEach((letter,i)=>grid.append(letterCard(letter,i)))}renderFriendLetters();
-function setMessageLinks(){['#writtenLink','#writtenLink2'].forEach(sel=>{const a=$(sel);if(GOOGLE_MESSAGE_FORM_URL&&!GOOGLE_MESSAGE_FORM_URL.startsWith('PASTE_'))a.href=GOOGLE_MESSAGE_FORM_URL;else{a.href='#community';a.addEventListener('click',e=>{if(GOOGLE_MESSAGE_FORM_URL.startsWith('PASTE_')){e.preventDefault();openModal('Message link not set yet ♡','The website owner needs to add the Google Form or Apps Script message-form URL in index.html. The rest of the scrapbook still works.','A tiny setup note')}})}})}setMessageLinks();
-async function loadCommunitySubmissions(){if(!PUBLIC_FEED_URL||PUBLIC_FEED_URL.startsWith('PASTE_'))return;try{const res=await fetch(PUBLIC_FEED_URL+'?action=public&ts='+Date.now(),{cache:'no-store'});if(!res.ok)throw new Error('Feed unavailable');const data=await res.json();if(!data.ok)return;remoteMessages=Array.isArray(data.messages)?data.messages:[];renderFriendLetters();const remoteAudio=Array.isArray(data.audio)?data.audio:[];TRACKS.splice(0,TRACKS.length,...TRACKS.filter(t=>!t.remote),...remoteAudio.map(a=>({title:a.title||('Voice note from '+a.from),src:a.src,duration:'Voice note',remote:true})));renderTracks();$('#feedStatus').textContent=remoteMessages.length?'Approved messages from friends are tucked into the letters above.':'New approved messages will appear here after review.'}catch(e){$('#feedStatus').textContent='The community messages could not refresh just now. The scrapbook itself is still available.';console.warn(e)}}loadCommunitySubmissions();setInterval(loadCommunitySubmissions,5*60*1000);
+
 $('#mainEnvelope').addEventListener('click',()=>{$('#mainEnvelope').classList.toggle('open');openModal('A Letter for You ♡',MAIN_LETTER,'A letter just for you')});$('#openLetter').onclick=()=>{$('#mainEnvelope').classList.add('open');openModal('A Letter for You ♡',MAIN_LETTER,'A letter just for you')};
-const voice=$('#voicePlayer');let trackIndex=0;function renderTracks(){const list=$('#trackList');list.replaceChildren();if(!TRACKS.length){list.textContent='No voice notes have been added yet.';return}TRACKS.forEach((t,i)=>{const row=document.createElement('div');row.className='track';const play=document.createElement('button');play.textContent=trackIndex===i&&!voice.paused?'Ⅱ':'▶';play.setAttribute('aria-label','Play '+t.title);play.onclick=()=>{if(trackIndex===i&&!voice.paused)voice.pause();else{trackIndex=i;playSelected()}};const title=document.createElement('span');title.className='track-title';title.textContent=(i+1)+'. '+t.title;const duration=document.createElement('small');duration.textContent=t.duration||'Voice note';row.append(play,title,duration);list.append(row)})}function playSelected(){const t=TRACKS[trackIndex];if(!t)return;voice.src=t.src;voice.play().then(()=>{$('#trackStatus').textContent='Now playing: '+t.title;$('#playTrack').textContent='Ⅱ';renderTracks()}).catch(()=>{openModal('Voice note not found ♡','This track is ready in the playlist, but the audio file could not be played. Make sure the matching audio file is uploaded in your audio/ folder, or wait for an approved friend voice note to load.','Your birthday mixtape')});renderTracks()}$('#playTrack').onclick=()=>{if(voice.paused)playSelected();else{voice.pause();$('#playTrack').textContent='▶';renderTracks()}};$('#nextTrack').onclick=()=>{trackIndex=(trackIndex+1)%TRACKS.length;playSelected()};$('#prevTrack').onclick=()=>{trackIndex=(trackIndex+TRACKS.length-1)%TRACKS.length;playSelected()};voice.addEventListener('ended',()=>{trackIndex=(trackIndex+1)%TRACKS.length;playSelected()});voice.addEventListener('play',renderTracks);voice.addEventListener('pause',renderTracks);renderTracks();
+
 function renderOpenWhen(){const grid=$('#openWhenGrid');OPEN_WHEN.forEach(item=>{const b=document.createElement('button');b.className='when-card';const icon=document.createElement('div');icon.className='icon';icon.textContent='✉';const title=document.createElement('h3');title.textContent=item.title;const p=document.createElement('p');p.textContent=item.subtitle;b.append(icon,title,p);b.onclick=()=>openModal(item.title,item.message,'Open when you need it');grid.append(b)})}renderOpenWhen();$('#prayerCopy').textContent=PRAYER_TEXT.split('\n\n').slice(0,2).join('\n\n')+'\n\n…';$('#readPrayer').onclick=()=>openModal('A Prayer for You ♡',PRAYER_TEXT,'A prayer for your new year');
 function celebrate(){const symbols=['✦','✧','✿','✷','❋','✺'];const colors=['#d9b779','#f4e7c9','#b9c4a2','#d99586','#f8f0d8'];for(let i=0;i<55;i++){const p=document.createElement('span');p.className='confetti';p.textContent=symbols[Math.floor(Math.random()*symbols.length)];p.style.left=Math.random()*100+'vw';p.style.color=colors[Math.floor(Math.random()*colors.length)];p.style.animationDelay=Math.random()+'s';p.style.animationDuration=(2.5+Math.random()*2)+'s';p.style.fontSize=(12+Math.random()*17)+'px';document.body.append(p);setTimeout(()=>p.remove(),5000)}}$('#giftButton').onclick=()=>{$('#giftReveal').classList.add('show');$('#giftButton').hidden=true;celebrate()};$('#wishButton').onclick=()=>{$('#wishMessage').classList.add('show');celebrate()};
 
 const bg=$('#bgMusic');$('#musicToggle').onclick=()=>{if(bg.paused){bg.play().then(()=>$('#musicToggle').textContent='♫ Music playing').catch(()=>openModal('Add your birthday song ♡','Place your chosen background music file in the website root and name it music.mp3. Then tap the music button again.','A little soundtrack'))}else{bg.pause();$('#musicToggle').textContent='♫ Play our song'}};
+
+const FRIEND_MESSAGES = [
+  {from:'Xianelle', message:`Happy birthday, Ate Maemae! You’re truly one of the most caring and loving ate we have. Thank you for always being on time sa practice hahaha. You’re one of the few people na naniniwala sa akin kapag pakiramdam ko hindi ako magaling sa ministry. Thank you for always reminding us that we are good enough, and that hindi tayo sumasayaw para sa tao, kundi para kay God. You also remind us that people come and go pero ate, hayaan mo naman na kami muna ang umalis bago ikaw, masakit eon e hahahahahahaha eon lang. love na love ka namin, ate ♡`},
+  {from:'Jing2x', message:`Happy Birthday ate mie2x😘 Thankyousomuch for everything. Sana masaya ka 2dai…… Check pm te para maunlock mo ibang message charet check pm te pinagmumura kita??!?!? HWHAHAHAHAHAHAHAHAHA eme HWHAHAHAHAH Hayy.. Thankyousososososmuch te for being my comfort person at laging 1 call way na tao, sala is mat sa mga advice mo surih tanga aq huhu😩HAHAHAHAH pede pm ko nlng te, pm ko nlng ha hiya q d2 e.`},
+  {from:'Tocino', message:`Sana maging mabait ka na bilang tao, paluin kota ng pickleball sabay ibabato ko 'yung paddle.
+
+Kidding aside, mae this be a blessed birthday. Keep your fire in serving God, mahalin mo lang si Lord!`},
+  {from:'Naan', message:`You are worth living. Your life is such a beautiful gift to everyone around you (esp. to my life). I hope you see how much value and joy you bring to this world.`},
+  {from:'Cjjj', message:`Hii te mae,maye,mai WHAHAHA happiest birthday sa isa pretty ate ko sa church kahit na laging mainit ang dugo mo saken HAHAHAH. Thankyou for being ate for me inside the church, thankyou sa tawanan kulitan asaran heuhehe bat lomoloha ako HAHAHAHA LOVE YOU ATE MAEEE
+
+praying that the Lord may give all the desires of your heart if its according to His will always surrender to God and continue to serve Him wholeheartedly and continue to seek Him
+
+Love you ate Mae sooooo muchhh`},
+  {from:'Binsoy', message:`Face to face Message ga!`}
+];
+function renderFriendMessages(){
+  const grid = $('#friendMessageGrid');
+  if(!grid) return;
+  grid.replaceChildren();
+  FRIEND_MESSAGES.forEach((item, index) => {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'friend-message-card';
+    card.style.setProperty('--tilt', (index % 2 ? '1.2deg' : '-.8deg'));
+    const from = document.createElement('span');
+    from.className = 'from';
+    from.textContent = 'A note from';
+    const name = document.createElement('h3');
+    name.textContent = item.from;
+    const preview = document.createElement('p');
+    preview.textContent = item.message;
+    const hint = document.createElement('span');
+    hint.className = 'open-hint';
+    hint.textContent = 'Open this letter ♡';
+    card.append(from, name, preview, hint);
+    card.addEventListener('click', () => openModal('A message from ' + item.from + ' ♡', item.message, 'Little letters, big love'));
+    grid.append(card);
+  });
+}
+renderFriendMessages();
+
 </script>
 <script type="module">
 
